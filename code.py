@@ -22,14 +22,14 @@ def ler(ficheiro):
 def gravar(ficheiro, tabela):
     with open(ficheiro, "w", encoding="utf-8") as file:
         linha = ""
-        for i in range(len(camposoutput)):
+        for i in range(len(camposoutput)):        # Gravar a primeira linha como sendo os títulos
             if i == len(camposoutput) - 1:
                 linha += str(camposoutput[i])
             else:
                 linha += str(camposoutput[i]) + ","
         file.write(linha + "\n")
 
-        for linha in tabela:
+        for linha in tabela:                      # Gravar as respetivas linhas
             id, nome, data_inscricao, data_aprovacao, inscricao_valida, aprovacao_valida = linha
             file.write(
                 f'"{id}","{nome}","{data_inscricao}","{data_aprovacao}","{inscricao_valida}","{aprovacao_valida}"\n')
@@ -38,9 +38,9 @@ def gravar(ficheiro, tabela):
 def gravarlog(ficheiro, tabela):
     with open(ficheiro, "w", encoding="utf-8") as file:
         linha = ""
-        for i in range(len(camposlog)):                        # Caso seja preciso
-            if i == len(camposlog) - 1:                        # Mostrar o cabeçalho dos erros
-                linha += str(camposlog[i])                     # (id, mensagem-inscrição, mensagem-aprovação) descomentar
+        for i in range(len(camposlog)):                        
+            if i == len(camposlog) - 1:                       
+                linha += str(camposlog[i])                     
             else:
                 linha += str(camposlog[i]) + ","
         file.write(linha + "\n")
@@ -54,8 +54,8 @@ def validar(tabela):
     clientes = []
     for cliente in tabela:
         id, nome, data_inscricao, data_aprovacao = cliente
-        data_inscricao_valida, erro_inscricao = validar_data(data_inscricao)
-        data_aprovacao_valida, erro_aprovacao = validar_data(data_aprovacao)
+        data_inscricao_valida, erro_inscricao = validar_data(data_inscricao)  """ Para cada cliente no ficheiro input.csv, vai verificar as duas datas """
+        data_aprovacao_valida, erro_aprovacao = validar_data(data_aprovacao)  """ Utilizando a função "validar_data", o seu retorno é guardado nas 2 variáveis """
 
         clientes.append([id, nome, data_inscricao, data_aprovacao, data_inscricao_valida, data_aprovacao_valida])
 
