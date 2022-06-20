@@ -15,7 +15,7 @@ def ler(ficheiro):
         rows = file.readlines()
         tabela = []
         for row in rows[1:]:
-            id, nome, data_inscricao, data_aprovacao = row.replace("\n", '').replace('"', '').split(",")
+            id, nome, data_inscricao, data_aprovacao = row.replace("\n", '').replace('"', '').split(",")  #Para cada campo da linha vai separar por variáveis e remover "\n" e '""' por ","
             tabela.append([id, nome, data_inscricao, data_aprovacao])
         return tabela
 
