@@ -1,9 +1,9 @@
 # ------------- // --------------
 """
-Exercicio Aula dia 14 Junho 2022
-Ficheiro 'input.csv' dado pelo prof com lista de listas de clientes com datas de inscrição e aprovação
-Objetivo: Verificar as datas se são válidas (Ex. Aula dia 13 Junho) e dividir em 2 ficheiros:
-                (output.csv(para as datas) & resultado.log.csv(para os erros))
+Exercício:
+Importar ficheiro 'input.csv' - contém registos de vários clientes com datas de inscrição e aprovação.
+Objetivo: Verificar as datas se são válidas (VERIFICAR - DATA) e dividir em 2 ficheiros:
+                output.csv ( para as datas, se válidas = True, senão = False ) & resultado.log ( imprimir as mensagens de erro para as datas False ) 
 """
 # ------------- // --------------
 
@@ -37,13 +37,13 @@ def gravar(ficheiro, tabela):
 
 def gravarlog(ficheiro, tabela):
     with open(ficheiro, "w", encoding="utf-8") as file:
-        #linha = ""
-        #for i in range(len(camposlog)):                        # Caso seja preciso
-        #    if i == len(camposlog) - 1:                        # Mostrar o cabeçalho dos erros
-        #        linha += str(camposlog[i])                     # (id, mensagem-inscrição, mensagem-aprovação) descomentar
-        #    else:
-        #        linha += str(camposlog[i]) + ","
-        #file.write(linha + "\n")
+        linha = ""
+        for i in range(len(camposlog)):                        # Caso seja preciso
+            if i == len(camposlog) - 1:                        # Mostrar o cabeçalho dos erros
+                linha += str(camposlog[i])                     # (id, mensagem-inscrição, mensagem-aprovação) descomentar
+            else:
+                linha += str(camposlog[i]) + ","
+        file.write(linha + "\n")
         for linha in tabela:
             id, erro_inscricao, erro_aprovacao = linha
             file.write(
@@ -74,7 +74,7 @@ def validarlog(tabela):
 
 # ------------- // --------------
 """ 
-Exercicio Aula dia 13 Junho
+VERIFICAR - DATA
 """
 # ------------- // --------------
 
