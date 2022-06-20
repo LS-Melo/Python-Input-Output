@@ -78,6 +78,10 @@ VERIFICAR - DATA
 """
 # ------------- // --------------
 
+"""
+Separar a data por dia, mês e ano.
+Nesta função a data é recebida como sendo uma lista e cada campo é inserido numa variável como inteiro
+"""
 def separar_data(data):
     datelist = data.split('-')
 
@@ -87,7 +91,9 @@ def separar_data(data):
 
     return dia, mes, ano
 
-
+"""
+Verificar se o ano é bissexto
+"""
 def ultimo_dia_do_mes(mes, ano):
     ultimo = 0
     if mes == 2:
@@ -99,11 +105,12 @@ def ultimo_dia_do_mes(mes, ano):
         ultimo = 31
     else:
         ultimo = 30
-    # ...
-    # ...
+        
     return ultimo
 
-
+"""
+Verificar se o formato da data é DD-MM-YYYY
+"""
 def formato_correto(data):
     correto = False
 
@@ -116,7 +123,11 @@ def formato_correto(data):
 
     return correto
 
-
+"""
+Verificar a data através das funções anteriores
+Retorna 'True' se for válida;
+Retorna 'False' + mensagem de erro, se for inválida.
+"""
 def validar_data(data):
     valida = False
     if formato_correto(data):
